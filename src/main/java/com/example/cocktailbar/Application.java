@@ -18,25 +18,21 @@ import java.nio.file.Path;
 import java.util.List;
 
 /**
- * Entry point and "composition root": the only place that chooses concrete classes
- * and wires them together. Everything else depends on interfaces.
- *
- * <p>Flow: load the data file -> create domain objects -> run business operations -> display results,
- * with a data error stopping the program cleanly.
+ *Application is the project's main file. It reads the path to the data file (provided as an argument, or defaulting to src/main/resources/drinks.csv), loads the drinks, sets up the pricing rules, creates the Menu and OrderService, and then launches Inventory and DemoScenario.
+ * If the file is invalid, it displays "Cannot open the bar" and terminates gracefully.
  */
-public final class Application {
+public final class Application { // first method that is executed when reading from
 
-    // Relative to the project root, which is where Maven and most IDEs run the program from.
     private static final String DEFAULT_DATA_FILE = "src/main/resources/drinks.csv";
 
-    private Application() {
-        // Not meant to be instantiated.
-    }
 
     public static void main(String[] args) {
+        //Reading the drink.csv file
         Path dataFile = Path.of(args.length > 0 ? args[0] : DEFAULT_DATA_FILE);
+        //Creating a repository object that retrieves the file's information
         DrinkRepository repository = new CsvDrinkRepository(dataFile);
 
+        //Using a try/catch block to verify that the information from the drink.csv file is correctly retrieved
         try {
             List<MenuEntry> entries = repository.loadAll();
 

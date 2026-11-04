@@ -22,11 +22,11 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * A scripted evening at the bar. It shows normal orders and every kind of refused order,
- * so a single run demonstrates the business rules and the error handling.
+ * DemoScenario makes the program visible when it is launched
  */
-public class DemoScenario {
 
+public class DemoScenario {
+    // Day of the event
     private static final LocalDate EVENING = LocalDate.of(2026, 11, 6);
     private static final int LOW_STOCK_THRESHOLD = 3;
 
@@ -36,6 +36,7 @@ public class DemoScenario {
     private final ReceiptFormatter receiptFormatter;
     private final ReportFormatter reportFormatter;
 
+    // Constructor
     public DemoScenario(Menu menu, Inventory inventory, OrderService orderService,
                         ReceiptFormatter receiptFormatter, ReportFormatter reportFormatter) {
         this.menu = menu;
@@ -49,12 +50,14 @@ public class DemoScenario {
         printMenu();
         printIngredientSearch();
 
+        // creation of client objects with their age
         Customer alice = new Customer("Alice", 25);
         Customer bob = new Customer("Bob", 17);
         Customer chloe = new Customer("Chloe", 30);
         Customer dan = new Customer("Dan", 45);
 
         section("Evening orders");
+        //
         attemptOrder("Alice, 17:30 (happy hour), 2 Mojito + 1 Lager",
                 alice, items("Mojito", 2, "Lager", 1), at(17, 30));
         attemptOrder("Bob (17), 18:15, soft drinks only",
@@ -81,15 +84,16 @@ public class DemoScenario {
                 + inventory.findLowStock(LOW_STOCK_THRESHOLD));
     }
 
+    // display Menu
     private void printMenu() {
         section("Menu");
-        // Polymorphism: each Drink subclass describes itself differently through the same describe() call.
         for (Drink drink : menu.getAll()) {
             String quickTag = drink.isQuickToPrepare() ? " (quick)" : "";
             System.out.println("  " + drink.describe() + " | prep " + drink.getPreparationTimeMinutes() + " min" + quickTag);
         }
     }
 
+    // Diplay Ingredient
     private void printIngredientSearch() {
         section("Search by ingredient");
         for (String ingredient : List.of("rum", "mint", "gin")) {

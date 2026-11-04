@@ -6,18 +6,16 @@ import java.math.BigDecimal;
 import java.util.Locale;
 
 /**
- * Common parent of everything the bar sells.
- *
- * <p>It is abstract because a "generic drink" never exists on its own: each concrete
- * kind (cocktail, beer, soft drink) decides its category and how long it takes to prepare.
- * Shared data and validation live here so subclasses do not duplicate them.
- */
+ * This is an abstract class: you never create "a drink" on its own—only a cocktail, a beer, or a soft drink.
+ **/
+
 public abstract class Drink implements Preparable, Comparable<Drink> {
 
     private final String name;
     private final BigDecimal basePrice;
     private final double alcoholPercent;
 
+    // constructor
     protected Drink(String name, BigDecimal basePrice, double alcoholPercent) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("Drink name must not be blank");
@@ -34,6 +32,7 @@ public abstract class Drink implements Preparable, Comparable<Drink> {
         this.alcoholPercent = alcoholPercent;
     }
 
+    // getter
     public String getName() {
         return name;
     }
@@ -46,20 +45,17 @@ public abstract class Drink implements Preparable, Comparable<Drink> {
         return alcoholPercent;
     }
 
-    /** A drink is alcoholic as soon as it contains any alcohol: this is what the age check relies on. */
+    // A drink is alcoholic as soon as it contains any alcohol: this is what the age check relies on.
     public boolean isAlcoholic() {
         return alcoholPercent > 0;
     }
 
     public abstract DrinkCategory getCategory();
 
-    // getPreparationTimeMinutes() comes from Preparable and is left unimplemented here:
+    // getPreparationTimeMinutes() comes from Preparable and is left unimplemented here.
     // each concrete drink gives its own value.
 
-    /**
-     * Natural order of drinks: alphabetical by name, ignoring case.
-     * It matches equals() (same name ignoring case = equal), as Comparable recommends.
-     */
+
     @Override
     public int compareTo(Drink other) {
         return name.compareToIgnoreCase(other.name);
