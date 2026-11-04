@@ -58,4 +58,4 @@ src/
 5. If everything is in order, it deducts the stock and creates an _Order_ with its _OrderLine_ items. At the slightest rejection, it throws an exception (_DrinkNotFoundException_, _UnderageCustomerException_ or _OutOfStockException)_ and nothing is updated. 
 6. _TextReceiptFormatter_ converts the _Order_ into a receipt. At the end of the evening, _ReportService_ calculates the statistics and _ReportFormatter_ formats them.
 
-Chaque classe fait un seul travail et ne connaît que les interfaces. On peut changer la source des données, une règle de prix ou le format de reçu sans toucher à _OrderService_.
+Each class performs a single task and only interacts with interfaces. You can change the data source, a pricing rule or the receipt format without altering _OrderService_.
