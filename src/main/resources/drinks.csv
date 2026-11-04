@@ -1,0 +1,17 @@
+# Menu and initial stock of the bar.
+# Columns: type,name,price,stock,alcohol_percent,details
+#   COCKTAIL   -> details = ingredients separated by '|'
+#   BEER       -> details = volume in cl
+#   SOFT_DRINK -> details = 'sugarfree' or 'regular'
+type,name,price,stock,alcohol_percent,details
+COCKTAIL,Mojito,8.50,20,10.0,rum|mint|lime|sugar|soda water
+COCKTAIL,Margarita,9.00,15,18.0,tequila|triple sec|lime juice|salt
+COCKTAIL,Old Fashioned,11.00,2,32.0,bourbon|sugar|angostura bitters
+COCKTAIL,Pina Colada,9.50,12,12.0,rum|coconut cream|pineapple juice
+COCKTAIL,Virgin Mojito,6.50,20,0.0,mint|lime|sugar|soda water
+BEER,Lager,4.50,40,5.0,33
+BEER,IPA,5.50,30,6.5,33
+BEER,Alcohol-Free Lager,4.00,15,0.0,33
+SOFT_DRINK,Cola,3.00,50,0.0,regular
+SOFT_DRINK,Diet Cola,3.00,3,0.0,sugarfree
+SOFT_DRINK,Orange Juice,3.50,25,0.0,regular
