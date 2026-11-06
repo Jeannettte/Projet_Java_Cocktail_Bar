@@ -10,6 +10,8 @@ import static com.example.cocktailbar.TestFixtures.mojito;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+// Interface methods: time limit of 1 or 2 minutes; partial, empty or missing ingredient names
+
 class MixableTest {
 
     private final Mixable mixable = () -> List.of("rum", "mint", "soda water");

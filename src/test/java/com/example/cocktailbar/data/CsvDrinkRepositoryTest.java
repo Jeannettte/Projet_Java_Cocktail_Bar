@@ -15,6 +15,13 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/*
+Reading the file using temporary files:
+comments, Windows line breaks, file
+missing, incorrectly encoded, folder instead of a file,
+duplicates, error line number and the actual
+drinks.csv
+ */
 class CsvDrinkRepositoryTest {
 
     private static final String HEADER = "type,name,price,stock,alcohol_percent,details\n";
@@ -35,7 +42,6 @@ class CsvDrinkRepositoryTest {
         return assertThrows(DataLoadException.class, () -> new CsvDrinkRepository(file).loadAll());
     }
 
-    // ---- normal cases ----
 
     @Test
     void everyValidLineIsLoadedInFileOrder() throws Exception {
@@ -72,7 +78,7 @@ class CsvDrinkRepositoryTest {
         assertTrue(entries.stream().allMatch(entry -> entry.initialStock() >= 0));
     }
 
-    // ---- invalid situations ----
+    //  invalid situations
 
     @Test
     void missingFileIsReportedAsDataLoadException() {
@@ -120,7 +126,7 @@ class CsvDrinkRepositoryTest {
         assertTrue(loadExpectingFailure("").getMessage().contains("No drinks"));
     }
 
-    // ---- failures while reading (the reader is opened, then something goes wrong) ----
+    //  failures while reading (the reader is opened, then something goes wrong)
 
     @Test
     void fileThatIsNotValidUtf8IsReportedAsDataLoadException() throws Exception {

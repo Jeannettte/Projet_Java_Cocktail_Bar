@@ -13,7 +13,7 @@ public final class CollectionUtils {
     /**
      * Returns the {@code limit} entries with the highest counts, best first.
      *
-     * <p>The key type must be {@link Comparable} so that ties are broken by key order:
+     * The key type must be {@link Comparable} so that ties are broken by key order:
      * the result is then always the same for the same input, which keeps reports and tests stable.
      */
     public static <K extends Comparable<K>> List<Map.Entry<K, Integer>> topN(Map<K, Integer> counts, int limit) {

@@ -20,6 +20,10 @@ import static com.example.cocktailbar.TestFixtures.orderOf;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+/*
+Test for turnover, rounded average basket value, categories, best-sellers
+ (including ties), busiest time, cancelled orders ignored, and reports with no orders
+ */
 
 class ReportServiceTest {
 

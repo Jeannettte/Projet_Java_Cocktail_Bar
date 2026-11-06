@@ -18,11 +18,17 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
+ * the core of the programme.
  * Applies the business rules of an order: the drink must exist, alcohol is only for adults,
  * stock must be sufficient, and the price depends on the pricing strategy.
  *
- * <p>All collaborators are received through the constructor (Dependency Inversion) and the
+ * All collaborators are received through the constructor (Dependency Inversion) and the
  * pricing rule is an interface, so changing prices never requires editing this class.
+ * To place an order, OrderService checks, in turn, that the order is not empty, that each quantity is positive,
+ * that each drink is available, that the customer is of legal drinking age, and that there is sufficient stock.
+ * Duplicate items are merged (‘Mojito’ + ‘mojito’ = one line). It then retrieves the price from the pricing rule,
+ * deducts the stock, and creates the order: a rejected order therefore never leaves the stock partially updated.
+ * It can also cancel an order by returning the drinks to stock
  */
 public class OrderService {
 

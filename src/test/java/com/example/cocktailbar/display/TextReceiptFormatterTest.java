@@ -13,6 +13,7 @@ import static com.example.cocktailbar.TestFixtures.lager;
 import static com.example.cocktailbar.TestFixtures.mojito;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+//Check that the receipt includes the customer’s name, the date, the items, the total and the preparation time
 class TextReceiptFormatterTest {
 
     @Test

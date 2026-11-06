@@ -12,7 +12,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/** Ready-made objects shared by the tests, so each test file stays focused on what it checks. */
+/** Ready-made objects shared by the tests, so each test file stays focused on what it checks.
+ *  It’s not really a test; it’s a toolkit that generates drinks, customers, hours and orders
+ *  (Mojito at €8.50, Lager at €4.50…) for the other tests*/
 public final class TestFixtures {
 
     private TestFixtures() {

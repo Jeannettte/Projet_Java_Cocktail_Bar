@@ -9,6 +9,7 @@ public class OutOfStockException extends BarException {
     private final int requested;
     private final int available;
 
+    //constructor
     public OutOfStockException(String drinkName, int requested, int available) {
         super("Not enough '" + drinkName + "' in stock: requested " + requested + ", available " + available);
         this.drinkName = drinkName;

@@ -11,9 +11,10 @@ import java.util.Objects;
 
 /**
  * 30% off cocktails between 17:00 (included) and 19:00 (excluded).
- *
- * <p>It wraps another strategy (decorator pattern) instead of extending StandardPricing, so it can be
- * stacked with other rules, for example with {@link LateNightPricing}.
+ * Beers and soft drinks remain the same price. For example: a Mojito priced at €8.50 drops to €5.95 at 5.30 pm
+ * It wraps another strategy (decorator pattern) instead of extending StandardPricing so it can be
+ * stacked with other rules.
+ * This class wraps another rule (it first asks for the price, then applies the discount)
  */
 public class HappyHourPricing implements PricingStrategy {
 
@@ -23,6 +24,7 @@ public class HappyHourPricing implements PricingStrategy {
 
     private final PricingStrategy delegate;
 
+    // constructor
     public HappyHourPricing(PricingStrategy delegate) {
         this.delegate = Objects.requireNonNull(delegate, "delegate");
     }

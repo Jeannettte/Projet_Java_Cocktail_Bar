@@ -14,11 +14,15 @@ import java.util.Locale;
 /**
  * Turns ONE csv line into a {@link MenuEntry}.
  *
- * <p>Kept separate from the class that reads the file (Single Responsibility): parsing rules can be
+ * Kept separate from the class that reads the file (Single Responsibility): parsing rules can be
  * tested with plain strings, without creating any file.
  *
- * <p>Expected columns: {@code type,name,price,stock,alcohol_percent,details}.
+ * Expected columns: {@code type,name,price,stock,alcohol_percent,details}.
  * All problems are reported as {@link IllegalArgumentException}; the caller adds the line number.
+ * Check that there are indeed 6 columns, read the type (SOFT_DRINK, COCKTAIL, BEER) and create a Cocktail,
+ * a Beer, or a SoftDrink with the correct information (ingredients, volume, sugar-free). It rejects invalid
+ * numbers, unknown types, and a soft drink that contains alcohol. It is separated from the file reader so
+ * it can be tested with simple text.
  */
 public class DrinkCsvParser {
 

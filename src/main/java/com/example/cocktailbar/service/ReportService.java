@@ -18,6 +18,10 @@ import java.util.stream.Collectors;
 /**
  * Computes statistics on a list of orders. It only reads data, never changes it.
  * Cancelled orders are dropped once, in the constructor, so no method has to remember to filter them.
+ *  The class calculates the  number of orders, turnover, average basket value,
+ * turnover by category, best-sellers and the busiest time of day. The average basket value and
+ * the busiest time of day are left blank if there are no orders, as there is no such thing as an average
+ * of nothing. Cancelled orders are removed once and for all as soon as they are created
  */
 public class ReportService {
 

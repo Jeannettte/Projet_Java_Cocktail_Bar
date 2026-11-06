@@ -16,6 +16,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+// Total, preparation time, cancellation, refusal to
+//cancel it twice
+
 class OrderTest {
 
     private static OrderLine line(Drink drink, int quantity, String unitPrice) {

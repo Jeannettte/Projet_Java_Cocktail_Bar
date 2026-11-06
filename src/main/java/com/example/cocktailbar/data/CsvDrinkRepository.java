@@ -16,9 +16,15 @@ import java.util.Set;
 /**
  * Reads the menu from a CSV file.
  *
- * <p>Blank lines and lines starting with '#' are ignored so the file can carry comments.
+ * Blank lines and lines starting with '#' are ignored so the file can carry comments.
  * The first remaining line is the header. Loading is all-or-nothing: the first invalid line stops
  * the load, because starting a bar with half a menu would hide the problem.
+ * Opens the file using
+ * Files.newBufferedReader and reads it line by line. A
+ * finally block always closes the file. It ignores empty lines and those beginning with #, skips the header,
+ * then sends each line to the parser. It rejects an empty file, an unreadable file and two drinks with the
+ * same name. Any error is signalled by a DataLoadException, along with the line number of the error.
+ * Loading is all or nothing: it’s better to stop than to open the pub with only half the menu.
  */
 public class CsvDrinkRepository implements DrinkRepository {
 

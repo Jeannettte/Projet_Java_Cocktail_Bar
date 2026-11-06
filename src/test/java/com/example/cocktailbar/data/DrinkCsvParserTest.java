@@ -14,11 +14,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/*
+One valid line per type and 15 invalid lines (too many or too few columns, unknown type,
+incorrect numbers, soft drinks containing alcohol, etc.)
+ */
 class DrinkCsvParserTest {
 
     private final DrinkCsvParser parser = new DrinkCsvParser();
 
-    // ---- valid lines: each type is turned into the right subclass ----
+    //  valid lines: each type is turned into the right subclass
 
     @Test
     void cocktailLineBecomesACocktailWithItsIngredients() {
@@ -62,7 +66,7 @@ class DrinkCsvParserTest {
         assertEquals(0, parser.parse("BEER,Lager,4.50,0,5.0,33").initialStock());
     }
 
-    // ---- invalid lines ----
+    //  invalid lines
 
     @ParameterizedTest
     @ValueSource(strings = {

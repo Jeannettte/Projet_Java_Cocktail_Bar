@@ -8,6 +8,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+// The 18-year-old age limit (17, 18, 19) – invalid ages and names
+
 class CustomerTest {
 
     // The limit is inclusive: the interesting cases are right below and right on 18.

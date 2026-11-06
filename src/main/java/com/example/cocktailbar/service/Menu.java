@@ -10,7 +10,11 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.TreeMap;
 
-/** The catalogue of drinks the bar sells. It knows nothing about stock or prices rules. */
+/** The catalogue of drinks the bar sells. It knows nothing about stock or prices rules.
+ *  The `Menue` class retrieves a drink by its name (ignoring case: ‘mojito’ matches ‘Mojito’),
+ *  lists the drinks in a category, finds cocktails containing a particular ingredient
+ *  and prevents the same drink from being added twice. A search that returns no results returns
+ *  an explicit empty result (optional) rather than `null`. It does not track stock levels or prices. */
 public class Menu {
 
     // Case-insensitive keys: a customer typing "mojito" must get the same drink as "Mojito".

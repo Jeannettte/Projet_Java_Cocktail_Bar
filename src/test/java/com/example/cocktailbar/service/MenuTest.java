@@ -17,6 +17,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+/*
+Case-insensitive search, no duplicates allowed, search by category and ingredient
+ */
 
 class MenuTest {
 
@@ -84,7 +87,7 @@ class MenuTest {
         assertFalse(menu.getAll().isEmpty());
     }
 
-    // ---- search by ingredient ----
+    //  search by ingredient
 
     @Test
     void findByIngredientReturnsEveryCocktailThatContainsItSortedByName() {

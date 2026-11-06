@@ -18,11 +18,15 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/*
+     Verification of the name, price and alcohol content;
+     characteristics specific to each type of drink; consistency and sorting
+ */
 class DrinkTest {
 
     private static final BigDecimal PRICE = new BigDecimal("3.00");
 
-    // ---- inheritance and polymorphism ----
+    //  inheritance and polymorphism
 
     @Test
     void cocktailPreparationTimeAddsOneMinutePerIngredient() {
@@ -47,7 +51,7 @@ class DrinkTest {
         assertTrue(new SoftDrink("Diet Cola", PRICE, true).describe().contains("sugar-free"));
     }
 
-    // ---- alcohol rule (used by the age check) ----
+    //  alcohol rule (used by the age check)
 
     @Test
     void drinkIsAlcoholicOnlyWhenItContainsAlcohol() {
@@ -58,7 +62,7 @@ class DrinkTest {
         assertFalse(cola().isAlcoholic());
     }
 
-    // ---- validation ----
+    //  validation
 
     @ParameterizedTest
     @ValueSource(strings = {"", "   "})
@@ -123,7 +127,7 @@ class DrinkTest {
         assertThrows(IllegalArgumentException.class, () -> new Beer("Lager", PRICE, 5.0, volume));
     }
 
-    // ---- equality ----
+    //  equality
 
     @Test
     void drinksWithTheSameNameIgnoringCaseAreEqual() {
@@ -134,7 +138,7 @@ class DrinkTest {
         assertFalse(cola().equals(lager()));
     }
 
-    // ---- natural order (Comparable) ----
+    //  natural order (Comparable)
 
     @Test
     void drinksAreSortedAlphabeticallyIgnoringCase() {

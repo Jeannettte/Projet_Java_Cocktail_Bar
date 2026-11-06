@@ -1,4 +1,7 @@
 # Menu and initial stock of the bar.
+#drinks.csv is the menu and starting inventory of the bar,
+it's the only data the program reads and we can change it without touching the code.
+#read by CsvDrinkRepository then DrinkCsvParser
 # Columns: type,name,price,stock,alcohol_percent,details
 #   COCKTAIL   -> details = ingredients separated by '|'
 #   BEER       -> details = volume in cl

@@ -30,6 +30,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
+ * The heart of the bar: total and stock for a standard order, exact age of 18, duplicates merged, order
+ * declined with no effect on stock, cancellation, price applied at the time of the order
  * Menu used in every test: Mojito 8.50 (stock 5), Lager 4.50 (stock 10), Cola 3.00 (stock 2),
  * Virgin Mojito 6.50 (stock 5). Prices are the standard ones unless a test says otherwise.
  */
@@ -56,7 +58,7 @@ class OrderServiceTest {
         service = new OrderService(menu, inventory, new StandardPricing());
     }
 
-    // ---- normal cases ----
+    //  normal cases
 
     @Test
     void normalOrderComputesTheTotalAndReducesStock() {
@@ -93,7 +95,7 @@ class OrderServiceTest {
         assertEquals("Mojito", order.getLines().get(0).getDrink().getName());
     }
 
-    // ---- edge cases ----
+    //  edge cases
 
     @Test
     void sameDrinkWrittenTwiceIsMergedIntoOneLine() {
@@ -134,7 +136,7 @@ class OrderServiceTest {
         assertEquals(new BigDecimal("9.50"), order.getTotal());
     }
 
-    // ---- invalid situations and exceptions ----
+    //  invalid situations and exceptions
 
     @Test
     void orderingMoreThanTheStockFailsAndReportsTheAmounts() {
@@ -202,7 +204,7 @@ class OrderServiceTest {
         assertEquals(10, inventory.getStock("Lager"));
     }
 
-    // ---- pricing is delegated to the strategy ----
+    //  pricing is delegated to the strategy
 
     @Test
     void pricingStrategyIsAppliedAtTheTimeOfTheOrder() {
@@ -215,7 +217,7 @@ class OrderServiceTest {
         assertEquals(new BigDecimal("8.50"), afterHappyHour.getTotal());
     }
 
-    // ---- cancellation ----
+    //  cancellation
 
     @Test
     void cancellingAnOrderPutsItsDrinksBackInStock() {

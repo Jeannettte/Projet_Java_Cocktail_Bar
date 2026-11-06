@@ -22,7 +22,7 @@ class PricingStrategyTest {
     private final PricingStrategy happyHour = new HappyHourPricing(standard);
     private final PricingStrategy lateNight = new LateNightPricing(standard);
 
-    // ---- standard ----
+    //  standard
 
     @Test
     void standardPricingReturnsTheMenuPriceAtAnyTime() {
@@ -30,7 +30,7 @@ class PricingStrategyTest {
         assertEquals(new BigDecimal("8.50"), standard.priceFor(mojito(), at(18, 0)));
     }
 
-    // ---- happy hour: 17:00 included, 19:00 excluded ----
+    //  happy hour: 17:00 included, 19:00 excluded
 
     @ParameterizedTest
     @CsvSource({"16,59,false", "17,0,true", "18,59,true", "19,0,false", "12,0,false"})
@@ -46,7 +46,7 @@ class PricingStrategyTest {
         assertEquals(new BigDecimal("3.00"), happyHour.priceFor(cola(), at(17, 30)));
     }
 
-    // ---- late night: 23:00 included, 04:00 excluded, crosses midnight ----
+    //  late night: 23:00 included, 04:00 excluded, crosses midnight
 
     @ParameterizedTest
     @CsvSource({"22,59,false", "23,0,true", "0,0,true", "3,59,true", "4,0,false", "12,0,false"})
@@ -62,7 +62,7 @@ class PricingStrategyTest {
         assertEquals(new BigDecimal("9.78"), lateNight.priceFor(mojito(), at(23, 30)));
     }
 
-    // ---- composition ----
+    // check the composition
 
     @Test
     void stackedRulesApplyOnlyTheOnesActiveAtThatTime() {
@@ -79,7 +79,7 @@ class PricingStrategyTest {
         assertThrows(NullPointerException.class, () -> new LateNightPricing(null));
     }
 
-    // ---- Liskov: any strategy can replace another without breaking callers ----
+    // Liskov: any strategy can replace another without breaking callers
 
     @Test
     void everyStrategyReturnsAPositivePriceInCentsAtEveryHour() {
