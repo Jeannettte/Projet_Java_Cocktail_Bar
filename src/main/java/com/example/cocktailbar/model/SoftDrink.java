@@ -2,7 +2,10 @@ package com.example.cocktailbar.model;
 
 import java.math.BigDecimal;
 
-/** A non-alcoholic drink such as a soda or a juice. */
+/** A non-alcoholic drink such as a soda or a juice.
+ * a ‘sugar-free’ indicator. The alcohol content is set to 0 by the manufacturer: a soft drink can therefore never be mistaken for an alcoholic drink.
+ * Preparation time: 1 minute
+ * child's Drink*/
 public class SoftDrink extends Drink {
 
     private static final int PREPARATION_MINUTES = 1;

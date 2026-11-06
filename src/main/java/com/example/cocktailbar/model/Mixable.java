@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Capability "is made by mixing ingredients".
  *
- * <p>Only some drinks have it (cocktails), which is why it is an interface and not a method of
+ * Only some drinks have it (cocktails), which is why it is an interface and not a method of
  * Drink: a beer would otherwise be forced to answer a question that makes no sense for it.
  */
 public interface Mixable {

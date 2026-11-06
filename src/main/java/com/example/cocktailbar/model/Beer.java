@@ -2,7 +2,9 @@ package com.example.cocktailbar.model;
 
 import java.math.BigDecimal;
 
-/** A bottled or draught beer. Served straight from the tap or fridge, so it is quick to prepare. */
+/** A bottled or draught beer. Served straight from the tap or fridge, so it is quick to prepare.
+ *  a volume in cl (strictly positive). Preparation time: 1 minute, as she helps herself straight away.
+ * child’s drink */
 public class Beer extends Drink {
 
     private static final int PREPARATION_MINUTES = 1;

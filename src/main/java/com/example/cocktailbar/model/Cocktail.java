@@ -3,13 +3,18 @@ package com.example.cocktailbar.model;
 import java.math.BigDecimal;
 import java.util.List;
 
-/** A mixed drink. Alcohol percentage may be 0 for "virgin" cocktails. */
+/**  children of Drink
+ * a list of ingredients (at least one, copied so that it cannot
+ * be altered externally). Preparation time: 2 minutes plus 1 minute per ingredient.
+ * It may not contain alcohol (Virgin Mojito).
+ * Alcohol percentage may be 0 for "virgin" cocktails. */
 public class Cocktail extends Drink implements Mixable {
 
     private static final int BASE_PREPARATION_MINUTES = 2;
 
     private final List<String> ingredients;
 
+    //Constructor
     public Cocktail(String name, BigDecimal basePrice, double alcoholPercent, List<String> ingredients) {
         super(name, basePrice, alcoholPercent);
         if (ingredients == null || ingredients.isEmpty()) {
@@ -19,11 +24,12 @@ public class Cocktail extends Drink implements Mixable {
         this.ingredients = List.copyOf(ingredients);
     }
 
+    // Gathering the ingredients
     @Override
     public List<String> getIngredients() {
         return ingredients;
     }
-
+    //Knowing which category the cocktail belongs to
     @Override
     public DrinkCategory getCategory() {
         return DrinkCategory.COCKTAIL;

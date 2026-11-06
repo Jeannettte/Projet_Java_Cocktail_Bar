@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.util.Locale;
 
 /**
- * This is an abstract class: you never create "a drink" on its own—only a cocktail, a beer, or a soft drink.
+ * This is an abstract class: you never create "a drink" on its own—only a cocktail, a beer or a soft drink.
  **/
 
 public abstract class Drink implements Preparable, Comparable<Drink> {
@@ -78,6 +78,7 @@ public abstract class Drink implements Preparable, Comparable<Drink> {
         }
         return name.equalsIgnoreCase(otherDrink.name);
     }
+
 
     @Override
     public int hashCode() {

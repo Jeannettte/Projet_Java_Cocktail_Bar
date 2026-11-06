@@ -3,7 +3,7 @@ package com.example.cocktailbar.model;
 /**
  * Capability "can be prepared by the bartender".
  *
- * <p>It is an interface and not a method of Drink alone because the idea is not tied to drinks:
+ * It is an interface and not a method of Drink alone because the idea is not tied to drinks:
  * anything the bar prepares (a snack, later) could promise the same thing.
  */
 public interface Preparable {

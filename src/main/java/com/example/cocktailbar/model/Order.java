@@ -8,8 +8,10 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A validated order. It only holds data and simple derived values (total, preparation time);
- * the rules that decide whether an order is allowed live in OrderService.
+ * A validated order.
+ * A number, the customer, the date and time, the lines (at least one) and a status. It calculates the total and the preparation time and can be cancelled (a
+ * second cancellation is not permitted). It does not decide whether the order is authorised: that is the job of OrderService.
+ * créée par OrderService ; lue par TextReceiptFormatter et ReportService
  */
 public class Order {
 
